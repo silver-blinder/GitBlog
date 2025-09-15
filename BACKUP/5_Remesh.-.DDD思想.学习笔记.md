@@ -1,5 +1,7 @@
 # [Remesh / DDD思想 学习笔记](https://github.com/silver-blinder/GitBlog/issues/5)
 
+总结整理来自https://mp.weixin.qq.com/s/56g-dnE2ZUSjGvJwLgCXrg
+
 ## 背景：需要解决的问题是什么？
 
 DDD 想要解决的问题，简单地说，就是需求模型不清晰的问题。
@@ -16,13 +18,13 @@ DDD 想要解决的问题，简单地说，就是需求模型不清晰的问题�
 
 它们的关键因素都是，要先有一个量化指标，不能只靠感觉，只靠主观评估。正所谓，没有度量，就没有优化，下图为当前普遍所认为的评估标准：
 
-![image.png](attachment:f82d9e8e-fd00-49fd-8a1b-eba8c5934dd2:image.png)
+[<!-- Failed to upload "image.png" -->](https://www.notion.so/image/attachment%3Af82d9e8e-fd00-49fd-8a1b-eba8c5934dd2%3Aimage.png?table=block&id=26b8931c-72a4-803b-96ee-de35b231e8ec&spaceId=63d7c7f7-c04c-4d01-a663-0550092fcdba&width=2000&userId=f42f982d-822d-4a07-ac2a-21ea42267c6a&cache=v2)
 
 ### 所以，当前普遍所认为的评估标准问题在哪里？
 
 先举两个例子：
 
-![image.png](attachment:af784909-a815-41b2-baf4-fb2643a27bb0:image.png)
+[![image.png](attachment:af784909-a815-41b2-baf4-fb2643a27bb0:image.png)](https://www.notion.so/image/attachment%3Aaf784909-a815-41b2-baf4-fb2643a27bb0%3Aimage.png?table=block&id=26b8931c-72a4-8015-9bf7-d5fa4b1fdbd4&spaceId=63d7c7f7-c04c-4d01-a663-0550092fcdba&width=2000&userId=f42f982d-822d-4a07-ac2a-21ea42267c6a&cache=v2)
 
 例如上图关于一个数据结构类型定义的例子：
 
@@ -35,7 +37,7 @@ DDD 想要解决的问题，简单地说，就是需求模型不清晰的问题�
 
 同样的，在处理流程建模过程中也会出现类似的问题：
 
-![image.png](attachment:ccb675e7-0567-4609-a8e7-e3fff1b73593:image.png)
+[![image.png](attachment:ccb675e7-0567-4609-a8e7-e3fff1b73593:image.png)](https://www.notion.so/image/attachment%3Accb675e7-0567-4609-a8e7-e3fff1b73593%3Aimage.png?table=block&id=26b8931c-72a4-80dd-86bd-da0895d4437f&spaceId=63d7c7f7-c04c-4d01-a663-0550092fcdba&width=2000&userId=f42f982d-822d-4a07-ac2a-21ea42267c6a&cache=v2)
 
 在一般情况下很容易写出右侧的代码，定义一个 Post class，封装所有操作，遇到非法操作就抛出错误。
 
@@ -50,7 +52,7 @@ DDD 想要解决的问题，简单地说，就是需求模型不清晰的问题�
 
 ## DDD框架的引入：解决无法表达的类型/方法定义问题
 
-![image.png](attachment:9207389f-f271-438e-996f-f15ba44590f4:image.png)
+[![image.png](attachment:9207389f-f271-438e-996f-f15ba44590f4:image.png)](https://www.notion.so/image/attachment%3A9207389f-f271-438e-996f-f15ba44590f4%3Aimage.png?table=block&id=26b8931c-72a4-80b0-84bb-fa9f345eb617&spaceId=63d7c7f7-c04c-4d01-a663-0550092fcdba&width=2000&userId=f42f982d-822d-4a07-ac2a-21ea42267c6a&cache=v2)
 
 在上面的例子中看：想要在类型上表达出大于或等于 18，需要用到 **Refinment types 或者 Dependent types 这两种高级的类型特性**。具体来说就是，用花括号去定义类型，但它表达的不是一个对象，而是一个类型表达式。在花括号内，竖杠左侧是类型定义，跟它对应的值，比如v。但ts目前不支持。
 
